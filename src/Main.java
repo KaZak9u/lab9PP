@@ -12,16 +12,16 @@ public class Main {
         Item circle = new Circle(new Point(50, 50), false, 100);
         Item txt = new TextItem(new Point(510, 520), "XDDDDjdsad", new Font(Font.SERIF, Font.BOLD, 50));
         Item regPol = new RegularPolygon(new Point(300, 300), false, 5, 150);
-        //circle = circle.translate(new Point(200,200));
+        circle = circle.translate(new Point(200,200));
         ArrayList<Item> lst = new ArrayList<>();
         lst.add(seg);
         lst.add(triangle);
         Item complexIt = new ComplexItem(lst);
+        //complexIt = complexIt.translate(new Point(100,100));
         scene.addItem(complexIt);
         scene.addItem(regPol);
         scene.addItem(circle);
         scene.addItem(txt);
-
         //rysowanie sceny
         JFrame frame = new JFrame("Scene Viewer");
         frame.setSize(1920, 1080);

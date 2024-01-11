@@ -42,9 +42,7 @@ public class ComplexItem extends Item{
 
     @Override
     public Item translate(Point p) {
-        for(Item item : children) {
-            item.translate(p);
-        }
+        children.replaceAll(item -> item.translate(p));
         return new ComplexItem(children);
     }
 
