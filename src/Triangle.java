@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Triangle extends Shape{
+public class Triangle extends Shape implements Singleton{
     Point p1;
     Point p2;
     Point p3;
@@ -11,6 +11,9 @@ public class Triangle extends Shape{
         this.p2 = p2;
         this.p3 = p3;
         setBoundingBox(new Point[]{p1,p2,p3});
+    }
+    public void removeFromScene(Scene scene) {
+        scene.removeSingleton(this.getClass());
     }
 
     @Override
