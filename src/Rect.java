@@ -21,7 +21,7 @@ public class Rect extends Shape{
     }
 
     @Override
-    public void draw(Graphics g, boolean drawBBox) {
+    public void draw(Graphics g) {
         g.setColor(itemColor);
         if(filled) {
             g.fillRect(position.getX(), position.getY(), width, height);

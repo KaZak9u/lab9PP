@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Item {
+public abstract class Item implements Selectable{
     protected Point position;
     protected Point [] boundingBox;
     protected Color itemColor = new Color(0, 0, 0);
@@ -15,8 +15,8 @@ public abstract class Item {
         boundingBox[2] = Point.getBotRight(points);
         boundingBox[3] = Point.getTopRight(points);
     }
-    public abstract void draw(Graphics g, boolean drawBBox);
-    protected void drawBoundingBox(Graphics g) {
+    public abstract void draw(Graphics g);
+    public void drawBoundingBox(Graphics g) {
         g.setColor(new Color(255,0,0));
         //g.drawRect(position.getX(), position.getY(), Math.abs(boundingBox[3].getX() - position.getX()), Math.abs(boundingBox[1].getY() - position.getY()));
         g.drawPolygon(new int[]{boundingBox[0].getX(), boundingBox[1].getX(), boundingBox[2].getX(), boundingBox[3].getX()},
@@ -28,4 +28,8 @@ public abstract class Item {
 
     public abstract Item translate(Point p);
 
+    public boolean pointIntersects(Point point) {
+        if(point.getY() < boundingBox[0].getY() || point.getY() > boundingBox[1].getY()) return false;
+        return point.getX() >= boundingBox[0].getX() && point.getX() <= boundingBox[3].getX();
+    }
 }

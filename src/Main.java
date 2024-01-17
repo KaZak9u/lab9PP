@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -34,6 +36,20 @@ public class Main {
                 scene.drawScene(g);
             }
         };
+        panel.addMouseListener(new MouseAdapter() {
+            private Point startPoint;
+            @Override
+            public void mousePressed(MouseEvent e) {
+                startPoint = new Point(e.getX(), e.getY());
+                scene.clearSelection();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                scene.selectItems(startPoint);
+                panel.repaint();
+            }
+        });
 
         frame.add(panel);
         frame.setVisible(true);

@@ -19,10 +19,9 @@ public class Segment extends Primitive{
     public double getLength() {
         return Math.sqrt(Math.pow(end.getX()-start.getX(),2) + Math.pow(end.getY()-start.getY(),2));
     }
-    public void draw(Graphics g, boolean drawBBox){
+    public void draw(Graphics g){
         g.setColor(itemColor);
         g.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
-        if(drawBBox) drawBoundingBox(g);
     }
 
     @Override

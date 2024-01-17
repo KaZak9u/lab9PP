@@ -14,14 +14,13 @@ public class Circle extends Shape{
     }
 
     @Override
-    public void draw(Graphics g, boolean drawBBox) {
+    public void draw(Graphics g) {
         g.setColor(itemColor);
         if(filled) {
             g.fillOval(position.getX(), position.getY(), 2 * radius, 2 * radius);
         } else {
             g.drawOval(position.getX(), position.getY(), 2 * radius, 2* radius);
         }
-        if(drawBBox) drawBoundingBox(g);
     }
     @Override
     public Item translate(Point p) {

@@ -25,13 +25,10 @@ public class TextItem extends Item{
     }
     public String getText(){return text;}
 
-    public void draw(Graphics g, boolean drawBBox){
+    public void draw(Graphics g){
         g.setColor(itemColor);
         g.setFont(font);
         g.drawString(text, position.getX(), position.getY());
-        if(drawBBox) {
-            drawBoundingBox(g);
-       }
     }
 
     @Override

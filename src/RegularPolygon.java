@@ -36,11 +36,10 @@ public class RegularPolygon extends Circle{
         }
     }
     @Override
-    public void draw(Graphics g, boolean drawBBox) {
+    public void draw(Graphics g) {
         g.setColor(itemColor);
         if(filled) g.fillPolygon(xOfPoints,yofPoints,sides);
         else g.drawPolygon(xOfPoints,yofPoints,sides);
-        if(drawBBox) drawBoundingBox(g);
     }
     @Override
     public Item translate(Point p) {

@@ -14,7 +14,7 @@ public class Triangle extends Shape{
     }
 
     @Override
-    public void draw(Graphics g, boolean drawBBox) {
+    public void draw(Graphics g) {
         int [] xTab = {p1.getX(), p2.getX(), p3.getX()};
         int [] yTab = {p1.getY(), p2.getY(), p3.getY()};
         g.setColor(itemColor);
@@ -23,7 +23,6 @@ public class Triangle extends Shape{
         } else {
             g.drawPolygon(xTab,yTab,3);
         }
-        if(drawBBox)drawBoundingBox(g);
     }
 
     @Override

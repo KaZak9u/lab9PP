@@ -33,11 +33,10 @@ public class ComplexItem extends Item{
     }
 
     @Override
-    public void draw(Graphics g, boolean drawBBox) {
+    public void draw(Graphics g) {
         for (Item child : children) {
-            child.draw(g, false);
+            child.draw(g);
         }
-        if(drawBBox) drawBoundingBox(g);
     }
 
     @Override
